@@ -11,7 +11,7 @@ void main(int argc, char** argv)
 	Hazel::Log::Init();
 
 	HZ_CORE_WARN("Initializd Log!");
-	HZ_INFO("Hello Boy!");
+	HZ_INFO("Hello Chuan!");
 
 	// Æô¶¯ÒýÇæ
 	auto app = Hazel::CreateApplication();
