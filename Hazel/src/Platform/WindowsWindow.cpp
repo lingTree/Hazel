@@ -103,6 +103,13 @@ namespace Hazel
 			}
 		});
 
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			KeyTypedEvent event(keycode);
+			data.EventCallback(event);
+		});
+
 		// 鼠标点击回调
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
 		{
@@ -116,7 +123,7 @@ namespace Hazel
 					data.EventCallback(event);
 					break;
 				}
-				case GLFW_REPEAT:
+				case GLFW_RELEASE:
 				{
 					MouseButtonReleasedEvent event(button);
 					data.EventCallback(event);
